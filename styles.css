@@ -504,12 +504,34 @@ a { color: inherit; }
   margin: 0;
   max-width: 900px;
   width: 100%;
+  position: relative;
 }
 .lightbox__figure img {
   width: 100%;
   max-height: 76vh;
   object-fit: contain;
   background: #000;
+}
+.lightbox__figure img.is-loading {
+  filter: blur(8px);
+  opacity: 0.6;
+}
+.lightbox__spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: lightbox-spin 0.7s linear infinite;
+}
+.lightbox__figure.is-loading .lightbox__spinner { display: block; }
+@keyframes lightbox-spin {
+  to { transform: rotate(360deg); }
 }
 .lightbox__figure figcaption {
   color: var(--white);

@@ -348,25 +348,43 @@ function openLightbox(index) {
   lightboxClose.focus();
 }
 
+const lightboxFigure = document.querySelector(".lightbox__figure");
+const preloadedImages = new Set();
+
 function preloadImage(index) {
   const item = GALLERY_DATA[index];
-  if (!item) return;
+  if (!item || preloadedImages.has(item.file)) return;
   const img = new Image();
   img.src = `assets/photos/${item.file}`;
+  preloadedImages.add(item.file);
 }
 
 function updateLightbox() {
   const item = GALLERY_DATA[currentIndex];
-  lightboxImg.src = `assets/photos/${item.file}`;
+
+  lightboxImg.classList.add("is-loading");
+  lightboxFigure.classList.add("is-loading");
+  lightboxImg.src = `assets/photos/thumbs/${item.file}`;
   lightboxImg.alt = item.alt;
   lightboxCaption.textContent = item.caption;
 
-  const order = visibleIndices();
-  const pos = order.indexOf(currentIndex);
-  if (pos !== -1 && order.length > 1) {
-    preloadImage(order[(pos + 1) % order.length]);
-    preloadImage(order[(pos - 1 + order.length) % order.length]);
-  }
+  const fullImg = new Image();
+  fullImg.onload = () => {
+    if (fullImg.src.endsWith(item.file) && GALLERY_DATA[currentIndex] === item) {
+      lightboxImg.src = fullImg.src;
+      lightboxImg.classList.remove("is-loading");
+      lightboxFigure.classList.remove("is-loading");
+      preloadedImages.add(item.file);
+
+      const order = visibleIndices();
+      const pos = order.indexOf(currentIndex);
+      if (pos !== -1 && order.length > 1) {
+        preloadImage(order[(pos + 1) % order.length]);
+        preloadImage(order[(pos - 1 + order.length) % order.length]);
+      }
+    }
+  };
+  fullImg.src = `assets/photos/${item.file}`;
 }
 
 function closeLightbox() {
