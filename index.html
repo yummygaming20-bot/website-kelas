@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelas C — Arsip SMPN 21 Pontianak</title>
+<meta name="description" content="Arsip digital Kelas C, alumni SMP Negeri 21 Kota Pontianak. 35 murid, dari 2024 sampai sekarang. Foto, catatan perjalanan, dan Instagram kelas ada di sini.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Kelas C — Arsip SMPN 21 Pontianak">
+<meta property="og:description" content="35 murid. Satu kelas. Kumpulan foto dan catatan Kelas C, SMP Negeri 21 Kota Pontianak, dari 2024 sampai sekarang.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/photos/kelas-01.jpg">
+
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#konten">Langsung ke isi</a>
+
+<!-- NAVBAR -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand">C<span class="nav__brand-dot">.</span></a>
+
+    <nav class="nav__menu" id="navMenu" aria-label="Navigasi utama">
+      <a href="#tentang">Tentang</a>
+      <a href="#album">Album</a>
+      <a href="#perjalanan">Perjalanan</a>
+      <a href="#sekolah">Sekolah</a>
+      <a href="https://www.instagram.com/n9necoast_?igsh=MXIwanUybHg0dXYwbA==" class="nav__ig" target="_blank" rel="noopener">IG @n9necoast_</a>
+    </nav>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="konten">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="hero__eyebrow">Arsip kelas — sejak 2024</p>
+        <h1 class="hero__title">C</h1>
+        <div class="hero__meta">
+          <span class="hero__meta-item"><strong data-field="student-count">35</strong> murid aktif</span>
+          <span class="hero__meta-sep">/</span>
+          <span class="hero__meta-item"><strong data-field="year-range">2024–2026</strong></span>
+        </div>
+        <p class="hero__lead">Ini bukan website sekolah. Ini cuma tempat Kelas C, alumni SMP Negeri 21 Kota Pontianak, naruh foto dan catatan supaya nggak hilang begitu aja.</p>
+        <div class="hero__actions">
+          <a href="#album" class="btn btn--primary">Lihat Album</a>
+          <a href="#tentang" class="btn btn--ghost">Tentang Kelas Kami</a>
+        </div>
+        <a href="https://www.instagram.com/n9necoast_?igsh=MXIwanUybHg0dXYwbA==" class="hero__ig" target="_blank" rel="noopener">@n9necoast_ di Instagram →</a>
+      </div>
+
+      <div class="hero__photo-wrap">
+        <figure class="hero__photo tape tape--tl tape--br">
+          <img src="assets/photos/kelas-03.jpg" alt="Kelas C foto bersama mengenakan pakaian tradisional di dalam kelas">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG -->
+  <section class="section" id="tentang">
+    <div class="section__inner">
+      <p class="section__eyebrow">01 —  </p>
+      <h2 class="section__title">Tentang Kelas Kami</h2>
+      <div class="tentang__grid">
+        <div class="tentang__text">
+          <p>Kelas C mulai jalan bareng sekitar tahun 2024, waktu masih kelas 7, di SMP Negeri 21 Kota Pontianak. Sekarang, tahun 2026, sudah di kelas 9 — kelas terakhir sebelum semuanya pisah jalan masing-masing dan resmi jadi alumni.</p>
+          <p>Halaman ini isinya foto dan catatan singkat soal kelas ini. Belum lengkap, dan mungkin nggak akan pernah benar-benar "selesai" — tapi setidaknya ada yang tersimpan.</p>
+        </div>
+        <dl class="stats">
+          <div class="stats__item">
+            <dt data-field="stat-count">35</dt>
+            <dd>Murid aktif</dd>
+          </div>
+          <div class="stats__item">
+            <dt data-field="stat-start-year">2024</dt>
+            <dd>Mulai bareng</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBUM -->
+  <section class="section section--alt" id="album">
+    <div class="section__inner">
+      <p class="section__eyebrow">02 — Album</p>
+      <h2 class="section__title">Album Foto</h2>
+      <p class="section__sub">Sebagian foto ini mungkin kelihatan biasa aja sekarang. Coba lihat lagi beberapa tahun dari sekarang.</p>
+
+      <div class="filters" id="filters" role="group" aria-label="Filter kategori album"><!-- diisi via script.js dari GALLERY_DATA --></div>
+
+      <div class="gallery" id="gallery"><!-- diisi via script.js dari GALLERY_DATA --></div>
+
+      <nav class="pagination" id="pagination" aria-label="Navigasi halaman album" hidden></nav>
+    </div>
+  </section>
+
+  <!-- PERJALANAN -->
+  <section class="section" id="perjalanan">
+    <div class="section__inner">
+      <p class="section__eyebrow">03 — Perjalanan</p>
+      <h2 class="section__title">Perjalanan Kelas</h2>
+
+      <ol class="timeline"><!-- diisi via script.js dari CLASS_DATA.timeline --></ol>
+    </div>
+  </section>
+
+  <!-- SEKOLAH -->
+  <section class="section section--alt" id="sekolah">
+    <div class="section__inner">
+      <p class="section__eyebrow">04 — Sekolah</p>
+      <h2 class="section__title">Sekolah</h2>
+
+      <div class="sekolah__card">
+        <div class="sekolah__info">
+          <p class="sekolah__placeholder">Informasi sekolah akan ditambahkan.</p>
+          <p class="sekolah__desc" data-field="school-desc"></p>
+          <dl class="sekolah__fields">
+            <div><dt>Nama sekolah</dt><dd data-field="school-name">—</dd></div>
+            <div><dt>Alamat</dt><dd data-field="school-address">—</dd></div>
+            <div><dt>NPSN</dt><dd data-field="school-npsn">—</dd></div>
+          </dl>
+          <a href="#" class="btn btn--ghost btn--disabled" id="mapsBtn" aria-disabled="true">Lihat Lokasi</a>
+        </div>
+        <div class="sekolah__photo-wrap">
+          <div class="sekolah__photo-placeholder" aria-hidden="true">
+            <span>Foto sekolah menyusul</span>
+          </div>
+          <img class="sekolah__photo" id="sekolahPhoto" src="" alt="" hidden>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="section ig">
+    <div class="section__inner ig__inner">
+      <p class="section__eyebrow">05 — Instagram</p>
+      <h2 class="ig__handle">@n9necoast_</h2>
+      <p class="ig__sub">Dokumentasi lain, story, dan hal-hal receh kelas ada di Instagram, bukan di sini semua.</p>
+      <a href="https://www.instagram.com/n9necoast_?igsh=MXIwanUybHg0dXYwbA==" class="btn btn--primary" target="_blank" rel="noopener">Kunjungi Instagram</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Tampilan foto" hidden>
+  <button class="lightbox__close" id="lightboxClose" aria-label="Tutup">✕</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Foto sebelumnya">‹</button>
+  <figure class="lightbox__figure">
+    <img id="lightboxImg" src="" alt="">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Foto berikutnya">›</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__brand">C</span>
+    <span class="footer__years">2024 — 2026</span>
+    <a href="https://www.instagram.com/n9necoast_?igsh=MXIwanUybHg0dXYwbA==" target="_blank" rel="noopener">@n9necoast_</a>
+  </div>
+  <p class="footer__copy">© <span id="year"></span> Kelas C. Dibuat sama anak kelasnya sendiri.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
