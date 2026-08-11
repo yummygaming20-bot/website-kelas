@@ -10,23 +10,12 @@ import {
   getDocs,
   serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { RATING_CONFIG } from "./rating-config.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBbbJJHd39Os2IsAm8J_y5vER2EMnpVo6I",
-  authDomain: "kelas-c-5ef66.firebaseapp.com",
-  projectId: "kelas-c-5ef66",
-  storageBucket: "kelas-c-5ef66.firebasestorage.app",
-  messagingSenderId: "503891542440",
-  appId: "1:503891542440:web:8e0501659828380cce5d9d",
-  measurementId: "G-BQBRXNRZT2",
-};
-
-const RECAPTCHA_SITE_KEY = "6LcbbIEtAAAAABrqJwE6MPu6x4NAm8FC7lnoYWrQ";
-
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(RATING_CONFIG.firebase);
 
 initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider(RECAPTCHA_SITE_KEY),
+  provider: new ReCaptchaV3Provider(RATING_CONFIG.recaptchaSiteKey),
   isTokenAutoRefreshEnabled: true,
 });
 
