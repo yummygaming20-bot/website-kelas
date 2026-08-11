@@ -502,10 +502,14 @@ document.addEventListener("keydown", (e) => {
   const avgEl = document.getElementById("ratingAvg");
   const countEl = document.getElementById("ratingCount");
   const displayStarsEl = document.getElementById("ratingStarsDisplay");
+  const starsWrapEl = document.getElementById("ratingInput");
   const inputStars = Array.from(document.querySelectorAll(".rating__stars-input .rating__star"));
+  const submitBtn = document.getElementById("ratingSubmit");
   const thanksEl = document.getElementById("ratingThanks");
 
-  if (!avgEl || !countEl || !displayStarsEl || !inputStars.length) return;
+  if (!avgEl || !countEl || !displayStarsEl || !inputStars.length || !submitBtn) return;
+
+  let selectedValue = 0;
 
   function getData() {
     try {
@@ -544,52 +548,82 @@ document.addEventListener("keydown", (e) => {
     }
   }
 
-  function renderInput() {
-    const userRating = getUserRating();
+  function paintStars(value) {
     inputStars.forEach((btn) => {
       const val = Number(btn.dataset.value);
       btn.textContent = "★";
-      btn.classList.toggle("is-filled", val <= userRating);
-      btn.setAttribute("aria-pressed", String(val === userRating));
+      btn.classList.toggle("is-filled", val <= value);
     });
-    if (userRating && thanksEl) thanksEl.hidden = false;
+  }
+
+  function lockAsSubmitted(value) {
+    selectedValue = value;
+    paintStars(value);
+    if (starsWrapEl) starsWrapEl.classList.add("is-locked");
+    inputStars.forEach((btn) => btn.setAttribute("tabindex", "-1"));
+    submitBtn.hidden = true;
+    if (thanksEl) thanksEl.hidden = false;
+  }
+
+  function renderInput() {
+    const userRating = getUserRating();
+    if (userRating) {
+      lockAsSubmitted(userRating);
+    } else {
+      paintStars(0);
+    }
   }
 
   function previewStars(value) {
+    if (starsWrapEl && starsWrapEl.classList.contains("is-locked")) return;
     inputStars.forEach((btn) => {
       const val = Number(btn.dataset.value);
       btn.classList.toggle("is-hover", val <= value);
     });
   }
 
+  function updateSubmitState() {
+    const enabled = selectedValue > 0;
+    submitBtn.disabled = !enabled;
+    submitBtn.classList.toggle("btn--disabled", !enabled);
+  }
+
   inputStars.forEach((btn) => {
     btn.addEventListener("mouseenter", () => previewStars(Number(btn.dataset.value)));
-    btn.addEventListener("mouseleave", () => previewStars(0));
+    btn.addEventListener("mouseleave", () => previewStars(selectedValue));
     btn.addEventListener("focus", () => previewStars(Number(btn.dataset.value)));
-    btn.addEventListener("blur", () => previewStars(0));
+    btn.addEventListener("blur", () => previewStars(selectedValue));
 
     btn.addEventListener("click", () => {
-      const value = Number(btn.dataset.value);
-      const prevUserRating = getUserRating();
-      const data = getData();
-
-      if (prevUserRating) {
-        data.sum = data.sum - prevUserRating + value;
-      } else {
-        data.sum += value;
-        data.count += 1;
-      }
-
-      saveData(data);
-      setUserRating(value);
-      renderSummary();
-      renderInput();
-      if (thanksEl) thanksEl.hidden = false;
+      if (starsWrapEl && starsWrapEl.classList.contains("is-locked")) return;
+      selectedValue = Number(btn.dataset.value);
+      paintStars(selectedValue);
+      updateSubmitState();
     });
+  });
+
+  submitBtn.addEventListener("click", () => {
+    if (!selectedValue) return;
+
+    const prevUserRating = getUserRating();
+    const data = getData();
+
+    if (prevUserRating) {
+      data.sum = data.sum - prevUserRating + selectedValue;
+    } else {
+      data.sum += selectedValue;
+      data.count += 1;
+    }
+
+    saveData(data);
+    setUserRating(selectedValue);
+    renderSummary();
+    lockAsSubmitted(selectedValue);
   });
 
   renderSummary();
   renderInput();
+  updateSubmitState();
 })();
 
 (function renderInstagramSection() {

@@ -719,6 +719,16 @@ a { color: inherit; }
 .rating__stars-input .rating__star:hover,
 .rating__stars-input .rating__star.is-hover { transform: scale(1.12); }
 .rating__stars-input .rating__star.is-filled { color: var(--tape); }
+.rating__stars-input.is-locked .rating__star {
+  cursor: default;
+  pointer-events: none;
+}
+.rating__submit {
+  display: inline-flex;
+  margin-top: 16px;
+  font-size: 14px;
+  padding: 10px 20px;
+}
 .rating__thanks {
   margin: 12px 0 0;
   color: var(--red);
