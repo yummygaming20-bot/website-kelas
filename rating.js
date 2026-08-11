@@ -1,4 +1,9 @@
+// Rating pakai Firebase Firestore — rating tergabung dari semua pengunjung.
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import {
+  initializeAppCheck,
+  ReCaptchaV3Provider,
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app-check.js";
 import {
   getFirestore,
   collection,
@@ -17,7 +22,15 @@ const firebaseConfig = {
   measurementId: "G-BQBRXNRZT2",
 };
 
+const RECAPTCHA_SITE_KEY = "6LcbbIEtAAAAABrqJwE6MPu6x4NAm8FC7lnoYWrQ";
+
 const app = initializeApp(firebaseConfig);
+
+initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider(RECAPTCHA_SITE_KEY),
+  isTokenAutoRefreshEnabled: true,
+});
+
 const db = getFirestore(app);
 const ratingsCol = collection(db, "ratings");
 
@@ -35,6 +48,7 @@ function setUserRating(value) {
   try {
     localStorage.setItem(USER_KEY, String(value));
   } catch (e) {
+    /* abaikan */
   }
 }
 
