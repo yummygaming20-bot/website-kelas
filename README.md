@@ -137,11 +137,11 @@ Kalau ingin memakainya untuk kelas/kelompok lain, kamu perlu bikin **project Fir
 ### Langkah 1 — Bikin Project Firebase
 
 1. Buka [console.firebase.google.com](https://console.firebase.google.com), login pakai akun Google.
-2. **Add project** → kasih nama bebas → boleh lewati Google Analytics → **Create project**.
+2. **Add/create project** → kasih nama bebas → boleh lewati Google Analytics → **Create project**.
 
 ### Langkah 2 — Aktifkan Firestore
 
-1. Di sidebar, buka **Build → Firestore Database** → **Create database**.
+1. Di sidebar, buka **Kategori Databases & Storage → Firestore** → **Create database**.
 2. Pilih edisi **Standard**, pilih lokasi server terdekat, mode **Production**.
 3. Setelah aktif, buka tab **Rules**, ganti isinya dengan ini, lalu **Publish**:
 
@@ -170,7 +170,7 @@ Rules ini memastikan pengunjung cuma bisa **menambah** rating baru (angka 1–5)
 3. Pilih **Use a `<script>` tag** (bukan npm), karena website ini statis tanpa proses build.
 4. Copy nilai `firebaseConfig` yang muncul (apiKey, authDomain, projectId, dll).
 
-### Langkah 4 — Setup App Check (Anti-Spam)
+### Langkah 4 — Setup App Check
 
 Supaya rating tidak bisa di-spam oleh script/bot dari luar website, pasang App Check dengan reCAPTCHA v3:
 
@@ -199,7 +199,7 @@ export const RATING_CONFIG = {
 };
 ```
 
-Simpan, lalu upload/deploy seperti biasa. Tidak perlu `npm install` apa pun — semua library Firebase diambil langsung dari CDN.
+Simpan, lalu upload/deploy seperti biasa. Tidak perlu `npm install` apa pun, semua library Firebase diambil langsung dari CDN.
 
 **Catatan soal keamanan:** Nilai-nilai di `rating-config.js` (apiKey, Site Key, dll) memang didesain untuk terlihat publik, aman meskipun repo-nya publik. Keamanan sebenarnya diatur lewat Firestore Security Rules (Langkah 2) dan App Check (Langkah 4), bukan lewat menyembunyikan config ini. Yang harus tetap dirahasiakan hanya **Secret Key reCAPTCHA**, dan itu hanya dimasukkan di Firebase Console, tidak pernah ditaruh di kode.
 
