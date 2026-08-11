@@ -32,6 +32,7 @@
       <a href="#album">Album</a>
       <a href="#perjalanan">Perjalanan</a>
       <a href="#sekolah">Sekolah</a>
+      <a href="#rating">Rating</a>
       <a href="https://www.instagram.com/n9necoast_?igsh=MXIwanUybHg0dXYwbA==" class="nav__ig" target="_blank" rel="noopener">IG @n9necoast_</a>
     </nav>
 
@@ -141,6 +142,35 @@
             <span>Foto sekolah menyusul</span>
           </div>
           <img class="sekolah__photo" id="sekolahPhoto" src="" alt="" hidden>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATING -->
+  <section class="section" id="rating">
+    <div class="section__inner">
+      <p class="section__eyebrow">06 — Rating</p>
+      <h2 class="section__title">Kasih Rating</h2>
+      <p class="section__sub" id="ratingSub"></p>
+
+      <div class="rating__card">
+        <div class="rating__summary">
+          <span class="rating__avg" id="ratingAvg">—</span>
+          <div class="rating__stars-display" id="ratingStarsDisplay" aria-hidden="true"></div>
+          <span class="rating__count" id="ratingCount">Belum ada rating</span>
+        </div>
+
+        <div class="rating__form">
+          <p class="rating__prompt">Menurut kamu, website ini gimana?</p>
+          <div class="rating__stars-input" id="ratingInput" role="radiogroup" aria-label="Beri rating untuk website ini">
+            <button type="button" class="rating__star" data-value="1" aria-label="1 bintang"></button>
+            <button type="button" class="rating__star" data-value="2" aria-label="2 bintang"></button>
+            <button type="button" class="rating__star" data-value="3" aria-label="3 bintang"></button>
+            <button type="button" class="rating__star" data-value="4" aria-label="4 bintang"></button>
+            <button type="button" class="rating__star" data-value="5" aria-label="5 bintang"></button>
+          </div>
+          <p class="rating__thanks" id="ratingThanks" hidden>Makasih udah kasih rating! ⭐</p>
         </div>
       </div>
     </div>

@@ -56,6 +56,10 @@ instagram: {
 subtitle: "Foto dan cerita lainnya juga kami bagikan melalui Instagram kelas."
 },
 
+rating: {
+subtitle: "Kalau kamu sempat mampir ke sini, boleh kasih rating buat website ini."
+},
+
 footer: {
 tagline: "Dibuat untuk menyimpan cerita dan kenangan Kelas C, SMP Negeri 21 Kota Pontianak."
 }
@@ -486,6 +490,106 @@ document.addEventListener("keydown", (e) => {
     photoEl.hidden = false;
     if (photoPlaceholderEl) photoPlaceholderEl.hidden = true;
   }
+})();
+
+(function renderRatingSection() {
+  const subEl = document.getElementById("ratingSub");
+  if (subEl) subEl.textContent = SITE_TEXT.rating.subtitle;
+
+  const STORAGE_KEY = "kelasC_ratingData";
+  const USER_KEY = "kelasC_userRating";
+
+  const avgEl = document.getElementById("ratingAvg");
+  const countEl = document.getElementById("ratingCount");
+  const displayStarsEl = document.getElementById("ratingStarsDisplay");
+  const inputStars = Array.from(document.querySelectorAll(".rating__stars-input .rating__star"));
+  const thanksEl = document.getElementById("ratingThanks");
+
+  if (!avgEl || !countEl || !displayStarsEl || !inputStars.length) return;
+
+  function getData() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : null;
+      if (parsed && typeof parsed.sum === "number" && typeof parsed.count === "number") return parsed;
+    } catch (e) { /* localStorage tidak tersedia */ }
+    return { sum: 0, count: 0 };
+  }
+
+  function saveData(data) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { /* abaikan */ }
+  }
+
+  function getUserRating() {
+    try { return Number(localStorage.getItem(USER_KEY)) || 0; } catch (e) { return 0; }
+  }
+
+  function setUserRating(value) {
+    try { localStorage.setItem(USER_KEY, String(value)); } catch (e) { /* abaikan */ }
+  }
+
+  function renderSummary() {
+    const data = getData();
+    const avg = data.count ? data.sum / data.count : 0;
+
+    avgEl.textContent = data.count ? avg.toFixed(1) : "—";
+    countEl.textContent = data.count ? `${data.count} rating` : "Belum ada rating";
+
+    displayStarsEl.innerHTML = "";
+    for (let i = 1; i <= 5; i++) {
+      const span = document.createElement("span");
+      span.className = "rating__star" + (i <= Math.round(avg) ? " is-filled" : "");
+      span.textContent = "★";
+      displayStarsEl.appendChild(span);
+    }
+  }
+
+  function renderInput() {
+    const userRating = getUserRating();
+    inputStars.forEach((btn) => {
+      const val = Number(btn.dataset.value);
+      btn.textContent = "★";
+      btn.classList.toggle("is-filled", val <= userRating);
+      btn.setAttribute("aria-pressed", String(val === userRating));
+    });
+    if (userRating && thanksEl) thanksEl.hidden = false;
+  }
+
+  function previewStars(value) {
+    inputStars.forEach((btn) => {
+      const val = Number(btn.dataset.value);
+      btn.classList.toggle("is-hover", val <= value);
+    });
+  }
+
+  inputStars.forEach((btn) => {
+    btn.addEventListener("mouseenter", () => previewStars(Number(btn.dataset.value)));
+    btn.addEventListener("mouseleave", () => previewStars(0));
+    btn.addEventListener("focus", () => previewStars(Number(btn.dataset.value)));
+    btn.addEventListener("blur", () => previewStars(0));
+
+    btn.addEventListener("click", () => {
+      const value = Number(btn.dataset.value);
+      const prevUserRating = getUserRating();
+      const data = getData();
+
+      if (prevUserRating) {
+        data.sum = data.sum - prevUserRating + value;
+      } else {
+        data.sum += value;
+        data.count += 1;
+      }
+
+      saveData(data);
+      setUserRating(value);
+      renderSummary();
+      renderInput();
+      if (thanksEl) thanksEl.hidden = false;
+    });
+  });
+
+  renderSummary();
+  renderInput();
 })();
 
 (function renderInstagramSection() {
