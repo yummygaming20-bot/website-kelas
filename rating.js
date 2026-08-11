@@ -1,4 +1,3 @@
-// Rating pakai Firebase Firestore — rating tergabung dari semua pengunjung.
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import {
   initializeAppCheck,
@@ -48,7 +47,6 @@ function setUserRating(value) {
   try {
     localStorage.setItem(USER_KEY, String(value));
   } catch (e) {
-    /* abaikan */
   }
 }
 
@@ -175,6 +173,7 @@ function initRating() {
   if (existingRating) {
     lockAsSubmitted(existingRating);
   } else {
+    paintStars(0);
     updateSubmitState();
   }
 
