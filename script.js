@@ -348,11 +348,25 @@ function openLightbox(index) {
   lightboxClose.focus();
 }
 
+function preloadImage(index) {
+  const item = GALLERY_DATA[index];
+  if (!item) return;
+  const img = new Image();
+  img.src = `assets/photos/${item.file}`;
+}
+
 function updateLightbox() {
   const item = GALLERY_DATA[currentIndex];
   lightboxImg.src = `assets/photos/${item.file}`;
   lightboxImg.alt = item.alt;
   lightboxCaption.textContent = item.caption;
+
+  const order = visibleIndices();
+  const pos = order.indexOf(currentIndex);
+  if (pos !== -1 && order.length > 1) {
+    preloadImage(order[(pos + 1) % order.length]);
+    preloadImage(order[(pos - 1 + order.length) % order.length]);
+  }
 }
 
 function closeLightbox() {
