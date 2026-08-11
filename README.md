@@ -1,9 +1,10 @@
-Website Arsip Kelas
+# Website Arsip Kelas
 
 Website statis untuk menyimpan foto, cerita, dan kenangan satu kelas. Template ini bisa digunakan kembali untuk kelas atau kelompok lain. Cukup ganti data pada satu file tanpa perlu mengubah struktur utama website.
 
 Struktur folder
 
+```
 site/
 ├── index.html
 ├── styles.css
@@ -13,6 +14,7 @@ site/
     │   └── thumbs/
     ├── school/
     └── logo/
+```
 
 Cara menggunakan untuk kelas atau kelompok lain
 
