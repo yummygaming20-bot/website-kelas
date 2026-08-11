@@ -1,6 +1,4 @@
 /*
-   Kelas C — Arsip SMPN 21 Pontianak
-
    Semua informasi yang bisa berubah disimpan di bagian ini,
    jadi tidak perlu mengubah bagian layout website.
 
@@ -129,7 +127,6 @@ const CATEGORY_LABELS = {
   bersama: "Bersama"
 };
 
-/* ---------- NAVBAR ---------- */
 const nav = document.getElementById("nav");
 const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
@@ -160,7 +157,6 @@ navMenu.querySelectorAll("a").forEach((link) => {
   });
 });
 
-/* ---------- HERO ---------- */
 (function renderHero() {
   const eyebrowEl = document.querySelector(".hero__eyebrow");
   const titleEl = document.querySelector(".hero__title");
@@ -180,7 +176,6 @@ navMenu.querySelectorAll("a").forEach((link) => {
   }
 })();
 
-/* ---------- TENTANG ---------- */
 (function renderTentang() {
   const textWrap = document.querySelector(".tentang__text");
   if (textWrap) {
@@ -199,7 +194,6 @@ navMenu.querySelectorAll("a").forEach((link) => {
   if (statStartYear) statStartYear.textContent = String(CLASS_DATA.startYear);
 })();
 
-/* ---------- ALBUM SUBTITLE + FILTERS ---------- */
 (function renderAlbumHeader() {
   const subEl = document.querySelector('#album .section__sub');
   if (subEl) subEl.textContent = SITE_TEXT.album.subtitle;
@@ -225,7 +219,6 @@ navMenu.querySelectorAll("a").forEach((link) => {
   });
 })();
 
-/* ---------- GALLERY RENDER (dengan pagination) ---------- */
 const galleryEl = document.getElementById("gallery");
 const paginationEl = document.getElementById("pagination");
 
@@ -319,7 +312,6 @@ function renderPagination(totalPages) {
 
 renderGallery();
 
-/* ---------- FILTERS (delegated, since buttons are rendered dynamically) ---------- */
 document.getElementById("filters").addEventListener("click", (e) => {
   const btn = e.target.closest(".filter");
   if (!btn) return;
@@ -330,7 +322,6 @@ document.getElementById("filters").addEventListener("click", (e) => {
   renderGallery();
 });
 
-/* ---------- LIGHTBOX ---------- */
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const lightboxCaption = document.getElementById("lightboxCaption");
@@ -342,9 +333,6 @@ let currentIndex = 0;
 let lastFocused = null;
 
 function visibleIndices() {
-  // Pakai semua item sesuai filter aktif, bukan cuma yang lagi dirender
-  // di halaman pagination saat ini — supaya arrow next/prev nggak
-  // "mentok" cuma muter di foto-foto satu halaman.
   return filteredData().map((item) => item.index);
 }
 
@@ -394,7 +382,6 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") stepLightbox(1);
 });
 
-/* ---------- PERJALANAN (TIMELINE) ---------- */
 (function renderTimeline() {
   const listEl = document.querySelector(".timeline");
   if (!listEl) return;
@@ -418,7 +405,6 @@ document.addEventListener("keydown", (e) => {
   });
 })();
 
-/* ---------- SEKOLAH: isi otomatis kalau data tersedia ---------- */
 (function applySchoolData() {
   const { school } = CLASS_DATA;
   const placeholderEl = document.querySelector(".sekolah__placeholder");
@@ -467,7 +453,6 @@ document.addEventListener("keydown", (e) => {
   }
 })();
 
-/* ---------- INSTAGRAM SECTION ---------- */
 (function renderInstagramSection() {
   const handleEl = document.querySelector(".ig__handle");
   const subEl = document.querySelector(".ig__sub");
@@ -478,7 +463,6 @@ document.addEventListener("keydown", (e) => {
   if (linkEl) linkEl.href = CLASS_DATA.instagramUrl;
 })();
 
-/* ---------- FOOTER ---------- */
 (function renderFooter() {
   const brandEl = document.querySelector(".footer__brand");
   const yearsEl = document.querySelector(".footer__years");

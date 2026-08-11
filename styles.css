@@ -1,14 +1,3 @@
-/* ==========================================================================
-   Kelas C — Arsip SMPN 21 Pontianak
-   Design tokens
-   -------------------------------------------------------------------------
-   paper   : warm, slightly grey off-white — like aged paper, not startup cream
-   ink     : near-black warm charcoal for text
-   red     : brick red pulled from the scout scarf / merah-putih in the photos
-   khaki   : muted olive pulled from the scout uniforms — secondary/borders
-   tape    : washi-tape yellow used ONLY on the photo-tape signature element
-   ========================================================================== */
-
 :root {
   --paper: #EDE9DF;
   --paper-alt: #E3DDCF;
@@ -71,7 +60,6 @@ a { color: inherit; }
   outline-offset: 3px;
 }
 
-/* ---------- layout helpers ---------- */
 .section { padding: 76px 0; }
 .section--alt { background: var(--paper-alt); }
 .section__inner {
@@ -131,9 +119,6 @@ a { color: inherit; }
   pointer-events: none;
 }
 
-/* ==========================================================================
-   NAVBAR
-   ========================================================================== */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -242,9 +227,6 @@ a { color: inherit; }
   .nav__ig { border-radius: 0 !important; text-align: center; }
 }
 
-/* ==========================================================================
-   HERO
-   ========================================================================== */
 .hero {
   padding-top: calc(var(--nav-h) + 36px);
   padding-bottom: 56px;
@@ -323,7 +305,6 @@ a { color: inherit; }
   object-fit: cover;
 }
 
-/* Signature: washi-tape corners on photos */
 .tape { position: relative; }
 .tape::before, .tape::after {
   content: "";
@@ -345,9 +326,6 @@ a { color: inherit; }
   .hero__photo { max-width: 360px; transform: rotate(-1.5deg); }
 }
 
-/* ==========================================================================
-   TENTANG
-   ========================================================================== */
 .tentang__grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
@@ -393,9 +371,6 @@ a { color: inherit; }
   .stats__item { padding-right: 10px; }
 }
 
-/* ==========================================================================
-   ALBUM / GALLERY
-   ========================================================================== */
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -514,9 +489,6 @@ a { color: inherit; }
   }
 }
 
-/* ==========================================================================
-   LIGHTBOX
-   ========================================================================== */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -566,9 +538,6 @@ a { color: inherit; }
   .lightbox__nav--next { right: 0; }
 }
 
-/* ==========================================================================
-   PERJALANAN / TIMELINE
-   ========================================================================== */
 .timeline {
   list-style: none;
   margin: 0;
@@ -615,9 +584,6 @@ a { color: inherit; }
   max-width: 48ch;
 }
 
-/* ==========================================================================
-   SEKOLAH
-   ========================================================================== */
 .sekolah__card {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -682,9 +648,6 @@ a { color: inherit; }
   .sekolah__photo-wrap { order: -1; }
 }
 
-/* ==========================================================================
-   INSTAGRAM
-   ========================================================================== */
 .ig { background: var(--ink); color: var(--white); }
 .ig .section__eyebrow { color: var(--tape); }
 .ig__inner { text-align: center; }
@@ -700,9 +663,6 @@ a { color: inherit; }
   margin: 0 auto 26px;
 }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
 .footer {
   padding: 30px 24px 40px;
   border-top: 1px solid var(--khaki-line);
