@@ -7,118 +7,121 @@
 */
 
 const CLASS_DATA = {
-  className: "Champions",
+className: "Champions",
 
-  studentCount: 35,
+studentCount: 35,
 
-  startYear: 2024,
-  currentYear: 2026,
+startYear: 2024,
+currentYear: 2026,
 
-  instagramUsername: "@n9necoast_",
-  instagramUrl: "https://www.instagram.com/n9necoast_",
+instagramUsername: "@n9necoast_",
+instagramUrl: "https://www.instagram.com/n9necoast_",
 
-  timeline: [
-    { year: 2024, text: "Kami mulai bersama di kelas 7." },
-    { year: 2025, text: "Kami melanjutkan perjalanan bersama di kelas 8." },
-    { year: 2026, text: "Sekarang kami sudah sampai di kelas 9." }
-  ],
+timeline: [
+{ year: 2024, text: "Kami mulai bersama sebagai siswa Kelas C di kelas 7." },
+{ year: 2025, text: "Kami tetap bersama dan melanjutkan cerita kami di kelas 8." },
+{ year: 2026, text: "Sekarang kami sudah berada di kelas 9 dan mulai bersiap untuk lulus." }
+],
 
-  school: {
-    name: "SMP Negeri 21 Kota Pontianak",
-    npsn: "30105170",
-    address: "Jl. Tanjung Raya II, Kelurahan Saigon, Kecamatan Pontianak Timur, Kota Pontianak, Kalimantan Barat 78232",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=-0.050180,109.3710617",
-    description: "SMP Negeri 21 Kota Pontianak adalah salah satu sekolah menengah pertama negeri yang berada di Pontianak Timur. Sekolah ini berdiri sejak tahun 2003 dan berada di bawah naungan Dinas Pendidikan dan Kebudayaan Kota Pontianak.",
-    photo: "sekolah-01.jpg"
-  }
+school: {
+name: "SMP Negeri 21 Kota Pontianak",
+npsn: "30105170",
+address: "Jl. Tanjung Raya II, Kelurahan Saigon, Kecamatan Pontianak Timur, Kota Pontianak, Kalimantan Barat 78232",
+mapsUrl: "https://www.google.com/maps/search/?api=1&query=-0.050180,109.3710617",
+description: "SMP Negeri 21 Kota Pontianak adalah sekolah menengah pertama negeri yang berada di Pontianak Timur, Kota Pontianak, Kalimantan Barat. Sekolah ini berdiri sejak tahun 2003 dan berada di bawah naungan Dinas Pendidikan dan Kebudayaan Kota Pontianak.",
+photo: "sekolah-01.jpg"
+}
 };
 
 const SITE_TEXT = {
-  hero: {
-    eyebrow: "Cerita kami sejak 2024",
-    lead: "Tempat untuk menyimpan foto, cerita, dan beberapa kenangan selama kami bersama di Kelas C, SMP Negeri 21 Kota Pontianak."
-  },
+hero: {
+eyebrow: "Cerita kami sebagai Kelas C sejak 2024",
+lead: "Website ini berisi foto, cerita, dan berbagai kenangan kami selama menjadi siswa Kelas C di SMP Negeri 21 Kota Pontianak."
+},
 
-  tentang: [
-    "Kami mulai bersama sebagai Kelas C sejak kelas 7 pada tahun 2024 di SMP Negeri 21 Kota Pontianak. Sekarang sudah tahun 2026 dan kami sudah kelas 9. Walaupun sebentar lagi akan lulus dan melanjutkan ke jalan masing-masing, kami tetap bagian dari Kelas yang sama  seperti sejak awal.",
+tentang: [
+"Kami adalah Kelas C, salah satu kelas di SMP Negeri 21 Kota Pontianak. Kami mulai bersama sejak kelas 7 pada tahun 2024. Saat itu kami masih baru mengenal satu sama lain, tetapi selama tiga tahun bersama, kami mulai memiliki banyak cerita dan kenangan.",
 
-    "Website ini dibuat sebagai tempat untuk menyimpan kenangan yang pernah kami lalui bersama. Mungkin tidak semua momen bisa dimasukkan ke sini, tapi semoga kenangan yang ada bisa tetap tersimpan dan suatu hari nanti bisa kami lihat kembali."
-  ],
+"Sekarang sudah tahun 2026 dan kami sudah berada di kelas 9. Tidak lama lagi kami akan lulus dan melanjutkan ke sekolah serta jalan masing-masing. Walaupun nantinya kami tidak lagi berada di kelas yang sama, kami tetap pernah menjadi bagian dari satu kelas yang sama dan menjalani banyak hal bersama.",
 
-  album: {
-    subtitle: "Kenangan keseruan kami di SMPN 21 Pontianak"
-  },
+"Website ini dibuat untuk menyimpan sebagian dari perjalanan kami. Tidak semua momen bisa dimasukkan ke sini, tetapi foto dan cerita yang ada diharapkan bisa menjadi pengingat tentang masa-masa kami sebagai Kelas C di SMP Negeri 21 Kota Pontianak."
 
-  instagram: {
-    subtitle: "Beberapa foto dan cerita lainnya juga kami bagikan di Instagram kelas."
-  },
+],
 
-  footer: {
-    tagline: "Dibuat untuk mengenang cerita Kelas C."
-  }
+album: {
+subtitle: "Kumpulan foto dan kenangan kami selama menjadi Kelas C di SMP Negeri 21 Kota Pontianak."
+},
+
+instagram: {
+subtitle: "Foto dan cerita lainnya juga kami bagikan melalui Instagram kelas."
+},
+
+footer: {
+tagline: "Dibuat untuk menyimpan cerita dan kenangan Kelas C, SMP Negeri 21 Kota Pontianak."
+}
 };
 
 const GALLERY_DATA = [
-  {
-    file: "kelas-01.jpg",
-    category: "kegiatan",
-    alt: "Anak-anak Kelas C memakai seragam pramuka dan berfoto bersama di dalam kelas",
-    caption: "Foto bersama dengan seragam pramuka."
-  },
-  {
-    file: "kelas-02.jpg",
-    category: "kegiatan",
-    alt: "Anak-anak Kelas C memakai seragam pramuka dan sarung tangan sambil membawa kantong sampah",
-    caption: "Kegiatan bersama di luar kelas."
-  },
-  {
-    file: "kelas-03.jpg",
-    category: "acara",
-    alt: "Anak-anak Kelas C memakai pakaian adat dan berfoto bersama di dalam kelas",
-    caption: "Hari ketika kami memakai pakaian adat."
-  },
-  {
-    file: "kelas-04.jpg",
-    category: "acara",
-    alt: "Anak-anak Kelas C memakai pakaian adat dan berfoto di kelas yang dihias dengan bendera merah putih",
-    caption: "Foto bersama di kelas."
-  },
-  {
-    file: "kelas-05.jpg",
-    category: "acara",
-    alt: "Beberapa siswa dan orang dewasa memakai pakaian tradisional dan berfoto bersama",
-    caption: "Foto bersama saat acara."
-  },
-  {
-    file: "kelas-06.jpg",
-    category: "bersama",
-    alt: "Anak-anak Kelas C berkumpul santai dengan pakaian bebas di teras rumah",
-    caption: "Kumpul bersama di luar sekolah."
-  },
-  {
-    file: "kelas-07.jpg",
-    category: "kegiatan",
-    alt: "Anak-anak Kelas C memakai seragam pramuka dan membersihkan area di pinggir jalan",
-    caption: "Kegiatan bersama di luar kelas."
-  },
-  {
-    file: "kelas-08.jpg",
-    category: "kegiatan",
-    alt: "Anak-anak Kelas C membersihkan sampah di sekitar pos jaga sekolah",
-    caption: "Bersih-bersih bersama."
-  },
-  {
-    file: "kelas-09.jpg",
-    category: "acara",
-    alt: "Anak-anak Kelas C berfoto bersama di dalam kelas yang dihias bendera merah putih",
-    caption: "Foto bersama di kelas yang dihias merah putih."
-  },
-  {
-    file: "kelas-10.jpg",
-    category: "bersama",
-    alt: "Anak-anak Kelas C berkumpul dan berfoto bersama di teras rumah",
-    caption: "Kumpul bersama di luar sekolah."
-  }
+{
+file: "kelas-01.jpg",
+category: "kegiatan",
+alt: "Students from Class C wearing scout uniforms and taking a group photo inside their classroom",
+caption: "Foto bersama dengan seragam pramuka."
+},
+{
+file: "kelas-02.jpg",
+category: "kegiatan",
+alt: "Students from Class C wearing scout uniforms and gloves while carrying garbage bags",
+caption: "Kegiatan bersama di luar kelas."
+},
+{
+file: "kelas-03.jpg",
+category: "acara",
+alt: "Students from Class C wearing traditional Indonesian clothing and taking a group photo inside their classroom",
+caption: "Hari ketika kami memakai pakaian adat."
+},
+{
+file: "kelas-04.jpg",
+category: "acara",
+alt: "Students from Class C wearing traditional Indonesian clothing and taking a photo in a classroom decorated with Indonesian flags",
+caption: "Foto bersama di kelas."
+},
+{
+file: "kelas-05.jpg",
+category: "acara",
+alt: "Several students and adults wearing traditional Indonesian clothing and taking a group photo",
+caption: "Foto bersama saat acara."
+},
+{
+file: "kelas-06.jpg",
+category: "bersama",
+alt: "Students from Class C relaxing and spending time together on the terrace of a house",
+caption: "Kumpul bersama di luar sekolah."
+},
+{
+file: "kelas-07.jpg",
+category: "kegiatan",
+alt: "Students from Class C wearing scout uniforms and cleaning an area beside a road",
+caption: "Kegiatan bersama di luar kelas."
+},
+{
+file: "kelas-08.jpg",
+category: "kegiatan",
+alt: "Students from Class C cleaning up garbage around the school security post",
+caption: "Bersih-bersih bersama."
+},
+{
+file: "kelas-09.jpg",
+category: "acara",
+alt: "Students from Class C taking a group photo inside a classroom decorated with Indonesian flags",
+caption: "Foto bersama di kelas yang dihias merah putih."
+},
+{
+file: "kelas-10.jpg",
+category: "bersama",
+alt: "Students from Class C gathering and taking a group photo on the terrace of a house",
+caption: "Kumpul bersama di luar sekolah."
+}
 ];
 
 const CATEGORY_LABELS = {
